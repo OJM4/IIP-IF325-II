@@ -176,5 +176,8 @@
   <ItemGroup>
     <None Include="Resources\clientes.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Tareas\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
