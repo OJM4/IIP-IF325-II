@@ -88,11 +88,11 @@
         Dim cantVender, stock As Integer
         cantVender = Val(txtVender.Text)
         stock = mComputadoras(index, 3)
-        If (cantVender >= stock) Then
-            MessageBox.Show("Sin Stock", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-        Else
+        If (stock >= cantVender) Then
             mComputadoras(index, 3) = stock - cantVender
             MessageBox.Show("Venta Realizada", "Venta", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        Else
+            MessageBox.Show("Sin Stock", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End If
     End Sub
 End Class

@@ -85,6 +85,12 @@
     <Compile Include="frmEmpleados.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmLibretaAhorro.Designer.vb">
+      <DependentUpon>frmLibretaAhorro.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmLibretaAhorro.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmMenu.Designer.vb">
       <DependentUpon>frmMenu.vb</DependentUpon>
     </Compile>
@@ -120,6 +126,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmEmpleados.resx">
       <DependentUpon>frmEmpleados.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLibretaAhorro.resx">
+      <DependentUpon>frmLibretaAhorro.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMenu.resx">
       <DependentUpon>frmMenu.vb</DependentUpon>
