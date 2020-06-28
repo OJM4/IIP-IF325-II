@@ -30,4 +30,15 @@ Public Class conexion
         cmb = New SqlCommandBuilder(da)
         da.Fill(ds, tabla)
     End Sub
+
+    Function insertar(ByVal sql)
+        conexion.Open()
+        comando = New SqlCommand(sql, conexion)
+        Dim i As Integer = comando.ExecuteNonQuery()
+        If (i > 0) Then
+            Return True
+        Else
+            Return False
+        End If
+    End Function
 End Class

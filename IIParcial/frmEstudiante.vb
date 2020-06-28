@@ -7,8 +7,32 @@
         mostrarDatos()
     End Sub
 
+    Public Sub Limpiar()
+        txtCodigo.Clear()
+        txtNombre.Clear()
+        txtPrimerApellido.Clear()
+        txtSegApellido.Clear()
+        txtEdad.Clear()
+        cmbSexo.Items.Clear()
+    End Sub
+
     Private Sub mostrarDatos()
         conexion.consulta("select * from personas.estudiante", "personas.estudiante")
         dtgRegistros.DataSource = conexion.ds.Tables("personas.estudiante")
     End Sub
+
+    Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
+        Dim guardar As String =
+        "insert into personas.estudiante values(" + txtCodigo.Text + ",'" + txtNombre.Text + "','" + txtPrimerApellido.Text + "',
+        '" + txtSegApellido.Text + "','" + txtEdad.Text + "','" + cmbSexo.Text + "')"
+        If (conexion.insertar(guardar)) Then
+            MessageBox.Show("Guardado")
+            mostrarDatos()
+        Else
+            MessageBox.Show("Error al guardar")
+        End If
+    End Sub
+
+
 End Class
+
