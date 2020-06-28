@@ -73,6 +73,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="conexion.vb" />
     <Compile Include="frmArreglosVectores.Designer.vb">
       <DependentUpon>frmArreglosVectores.vb</DependentUpon>
     </Compile>
@@ -83,6 +84,12 @@
       <DependentUpon>frmEmpleados.vb</DependentUpon>
     </Compile>
     <Compile Include="frmEmpleados.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEstudiante.Designer.vb">
+      <DependentUpon>frmEstudiante.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmEstudiante.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmLibretaAhorro.Designer.vb">
@@ -126,6 +133,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmEmpleados.resx">
       <DependentUpon>frmEmpleados.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEstudiante.resx">
+      <DependentUpon>frmEstudiante.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLibretaAhorro.resx">
       <DependentUpon>frmLibretaAhorro.vb</DependentUpon>
