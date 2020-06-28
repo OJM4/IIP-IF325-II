@@ -7,6 +7,10 @@ Public Class conexion
     'Catalog es el nombre de la base de datos
 
     Public conexion As SqlConnection = New SqlConnection("Data Source= DESKTOP-FA1HDUQ;Initial Catalog=Ejemplo; Integrated Security=True")
+    Private cmb As SqlCommandBuilder
+    Public ds As DataSet = New DataSet()
+    Public da As SqlDataAdapter
+    Public comando As SqlCommand
     ' se crea un procedimiento para conectar a la base de datos y en el caso de existir alguna excepcion que esta la retorne 
     Public Sub conectar()
         Try
@@ -18,5 +22,12 @@ Public Class conexion
         Finally
             conexion.Close()
         End Try
+    End Sub
+
+    Public Sub consulta(ByVal sql, ByVal tabla)
+        ds.Tables.Clear()
+        da = New SqlDataAdapter(sql, conexion)
+        cmb = New SqlCommandBuilder(da)
+        da.Fill(ds, tabla)
     End Sub
 End Class
