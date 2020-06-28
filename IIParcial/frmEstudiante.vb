@@ -28,11 +28,31 @@
         If (conexion.insertar(guardar)) Then
             MessageBox.Show("Guardado")
             mostrarDatos()
+            Limpiar()
         Else
             MessageBox.Show("Error al guardar")
         End If
     End Sub
 
+    Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
+        If (conexion.eliminar("personas.estudiante", "codigo=" + txtCodigo.Text)) Then
+            MessageBox.Show("Eliminado")
+            mostrarDatos()
+        Else
+            MessageBox.Show("Error al Eliminar")
+        End If
+    End Sub
+
+    Private Sub dtgRegistros_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtgRegistros.CellContentClick
+        Dim dtg As DataGridViewRow = dtgRegistros.Rows(e.RowIndex)
+        txtCodigo.Text = dtg.Cells(0).Value.ToString()
+        txtNombre.Text = dtg.Cells(1).Value.ToString()
+        txtPrimerApellido.Text = dtg.Cells(2).Value.ToString()
+        txtSegApellido.Text = dtg.Cells(3).Value.ToString()
+        txtEdad.Text = dtg.Cells(4).Value.ToString()
+        cmbSexo.Text = dtg.Cells(5).Value.ToString()
+
+    End Sub
 
 End Class
 

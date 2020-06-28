@@ -23,6 +23,8 @@ Partial Class frmEstudiante
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.txtCodigo = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.cmbSexo = New System.Windows.Forms.ComboBox()
         Me.txtEdad = New System.Windows.Forms.TextBox()
         Me.txtSegApellido = New System.Windows.Forms.TextBox()
@@ -39,8 +41,6 @@ Partial Class frmEstudiante
         Me.btnGuardar = New System.Windows.Forms.Button()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.dtgRegistros = New System.Windows.Forms.DataGridView()
-        Me.txtCodigo = New System.Windows.Forms.TextBox()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -67,6 +67,22 @@ Partial Class frmEstudiante
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Datos estudiante"
+        '
+        'txtCodigo
+        '
+        Me.txtCodigo.Location = New System.Drawing.Point(113, 35)
+        Me.txtCodigo.Name = "txtCodigo"
+        Me.txtCodigo.Size = New System.Drawing.Size(100, 22)
+        Me.txtCodigo.TabIndex = 13
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(39, 35)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(52, 17)
+        Me.Label1.TabIndex = 12
+        Me.Label1.Text = "Codigo"
         '
         'cmbSexo
         '
@@ -209,22 +225,6 @@ Partial Class frmEstudiante
         Me.dtgRegistros.RowTemplate.Height = 24
         Me.dtgRegistros.Size = New System.Drawing.Size(728, 150)
         Me.dtgRegistros.TabIndex = 0
-        '
-        'txtCodigo
-        '
-        Me.txtCodigo.Location = New System.Drawing.Point(113, 35)
-        Me.txtCodigo.Name = "txtCodigo"
-        Me.txtCodigo.Size = New System.Drawing.Size(100, 22)
-        Me.txtCodigo.TabIndex = 13
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(39, 35)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(58, 17)
-        Me.Label1.TabIndex = 12
-        Me.Label1.Text = "Nombre"
         '
         'frmEstudiante
         '
