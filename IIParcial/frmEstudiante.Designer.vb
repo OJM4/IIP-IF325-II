@@ -43,6 +43,8 @@ Partial Class frmEstudiante
         Me.dtgRegistros = New System.Windows.Forms.DataGridView()
         Me.btnSalir = New System.Windows.Forms.Button()
         Me.btnLimpiar = New System.Windows.Forms.Button()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.cmbCodigoClase = New System.Windows.Forms.ComboBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -51,6 +53,8 @@ Partial Class frmEstudiante
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.cmbCodigoClase)
+        Me.GroupBox1.Controls.Add(Me.Label7)
         Me.GroupBox1.Controls.Add(Me.txtCodigo)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.cmbSexo)
@@ -91,14 +95,14 @@ Partial Class frmEstudiante
         Me.cmbSexo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbSexo.FormattingEnabled = True
         Me.cmbSexo.Items.AddRange(New Object() {"M", "F"})
-        Me.cmbSexo.Location = New System.Drawing.Point(345, 133)
+        Me.cmbSexo.Location = New System.Drawing.Point(345, 98)
         Me.cmbSexo.Name = "cmbSexo"
         Me.cmbSexo.Size = New System.Drawing.Size(100, 24)
         Me.cmbSexo.TabIndex = 11
         '
         'txtEdad
         '
-        Me.txtEdad.Location = New System.Drawing.Point(345, 93)
+        Me.txtEdad.Location = New System.Drawing.Point(345, 58)
         Me.txtEdad.Name = "txtEdad"
         Me.txtEdad.Size = New System.Drawing.Size(100, 22)
         Me.txtEdad.TabIndex = 10
@@ -127,7 +131,7 @@ Partial Class frmEstudiante
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(298, 136)
+        Me.Label6.Location = New System.Drawing.Point(298, 101)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(39, 17)
         Me.Label6.TabIndex = 5
@@ -136,7 +140,7 @@ Partial Class frmEstudiante
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(298, 93)
+        Me.Label5.Location = New System.Drawing.Point(298, 58)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(41, 17)
         Me.Label5.TabIndex = 4
@@ -249,11 +253,30 @@ Partial Class frmEstudiante
         Me.btnLimpiar.Text = "Limpiar"
         Me.btnLimpiar.UseVisualStyleBackColor = True
         '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(259, 140)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(91, 17)
+        Me.Label7.TabIndex = 14
+        Me.Label7.Text = "Codigo Clase"
+        '
+        'cmbCodigoClase
+        '
+        Me.cmbCodigoClase.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbCodigoClase.FormattingEnabled = True
+        Me.cmbCodigoClase.Items.AddRange(New Object() {"IF-325", "IF-326"})
+        Me.cmbCodigoClase.Location = New System.Drawing.Point(345, 138)
+        Me.cmbCodigoClase.Name = "cmbCodigoClase"
+        Me.cmbCodigoClase.Size = New System.Drawing.Size(100, 24)
+        Me.cmbCodigoClase.TabIndex = 15
+        '
         'frmEstudiante
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(795, 441)
+        Me.ClientSize = New System.Drawing.Size(788, 419)
         Me.ControlBox = False
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
@@ -293,4 +316,6 @@ Partial Class frmEstudiante
     Friend WithEvents Label1 As Label
     Friend WithEvents btnSalir As Button
     Friend WithEvents btnLimpiar As Button
+    Friend WithEvents cmbCodigoClase As ComboBox
+    Friend WithEvents Label7 As Label
 End Class

@@ -1,6 +1,6 @@
-﻿Imports System.Data
+﻿'Imports System.Data
 Imports System.Data.SqlClient
-Imports System.Windows.Forms
+'Imports System.Windows.Forms
 Public Class conexion
 
     'Data Source= DESKTOP-FA1HDUQ//el valor de data source varia de acuerdo al nombre del servidor en sql

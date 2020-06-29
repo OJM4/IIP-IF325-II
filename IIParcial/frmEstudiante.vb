@@ -3,7 +3,7 @@
     Dim conexion As conexion = New conexion()
     Private Sub frmEstudiante_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'en el evento load del formulario se abre la conexion a la base de datos
-        'conexion.conectar()
+        conexion.conectar()
         btnModificar.Enabled = False
         btnEliminar.Enabled = False
         mostrarDatos()
@@ -24,16 +24,20 @@
     End Sub
 
     Private Sub mostrarDatos()
-        conexion.consulta("select codigo as Código, nombre as Nombre, primerApellido as 'Primer apellido', 
-                           segundoApellido as 'Segundo apellido', edad as Edad, sexo as Sexo from personas.estudiante", "personas.estudiante")
-        dtgRegistros.DataSource = conexion.ds.Tables("personas.estudiante")
+        conexion.consulta(" select codigo, nombre, primerApellido, segundoApellido, edad, s.descripcion, c.nombreClase
+                            from personas.estudiante e
+                            inner join personas.sexo s
+                            on e.sexo = s.codigoSexo
+							inner join personas.clase c
+							on e.codigoClase = c.codigoClase", "personas.estudiante, personas.sexo, personas.clase")
+        dtgRegistros.DataSource = conexion.ds.Tables("personas.estudiante, personas.sexo, personas.clase")
     End Sub
 
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
         Try
             Dim guardar As String =
             "insert into personas.estudiante values(" + txtCodigo.Text + ",'" + txtNombre.Text + "','" + txtPrimerApellido.Text + "',
-             '" + txtSegApellido.Text + "','" + txtEdad.Text + "','" + cmbSexo.Text + "')"
+             '" + txtSegApellido.Text + "','" + txtEdad.Text + "','" + cmbSexo.Text + "','" + cmbCodigoClase.Text + "')"
             If (conexion.insertar(guardar)) Then
                 MessageBox.Show("Guardado")
                 mostrarDatos()
@@ -74,8 +78,8 @@
 
         Try
             Dim modificar As String =
-            "nombre='" + txtNombre.Text + "', primerApellido='" + txtPrimerApellido.Text + "', segundoApellido='" + txtSegApellido.Text + "', edad='" + txtEdad.Text + "'"
-            If (conexion.modificar("personas.estudiante", modificar, "codigo=" + txtCodigo.Text)) Then
+            "nombre='" + txtNombre.Text + "', primerApellido='" + txtPrimerApellido.Text + "', segundoApellido='" + txtSegApellido.Text + "', edad='" + txtEdad.Text + "', codigoClase='" + cmbCodigoClase.Text + "'"
+            If (conexion.modificar("personas.estudiante", modificar, " codigo=" + txtCodigo.Text)) Then
                 MessageBox.Show("Actualizado")
                 mostrarDatos()
                 Limpiar()
@@ -106,6 +110,7 @@
             txtSegApellido.Text = dtg.Cells(3).Value.ToString()
             txtEdad.Text = dtg.Cells(4).Value.ToString()
             cmbSexo.Text = dtg.Cells(5).Value.ToString()
+            cmbCodigoClase.Text = dtg.Cells(6).Value.ToString()
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
