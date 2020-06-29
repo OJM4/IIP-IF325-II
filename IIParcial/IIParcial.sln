@@ -5,6 +5,11 @@ VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "IIParcial", "IIParcial.vbproj", "{E866E05B-8955-42F6-9313-57A2BFE91B8B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{737D8544-5EB4-4EE7-B348-EBD980491D7C}"
+	ProjectSection(SolutionItems) = preProject
+		ScriptBaseDeDatos.txt = ScriptBaseDeDatos.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

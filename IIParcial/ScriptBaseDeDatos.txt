@@ -1,0 +1,23 @@
+create database Ejemplo
+go
+
+create schema personas
+go
+
+use Ejemplo
+go
+
+create table personas.estudiante(
+	codigo int primary key not null,
+	nombre varchar(25),
+	primerApellido varchar(25),
+	segundoApellido varchar(25),
+	edad int,
+	sexo char(1)
+)
+
+select * from personas.estudiante
+
+insert into personas.estudiante values(0036,'Luis','Perez','Martinez',26,'M')
+
+delete from personas.estudiante where codigo = 0036

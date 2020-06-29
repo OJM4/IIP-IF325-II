@@ -54,4 +54,17 @@ Public Class conexion
             Return False
         End If
     End Function
+
+    Function modificar(ByVal tabla, ByVal campos, ByVal condicion)
+        conexion.Open()
+        Dim modificarE As String = "update " + tabla + " set " + campos + " where " + condicion
+        comando = New SqlCommand(modificarE, conexion)
+        Dim i As Integer = comando.ExecuteNonQuery()
+        conexion.Close()
+        If (i > 0) Then
+            Return True
+        Else
+            Return False
+        End If
+    End Function
 End Class

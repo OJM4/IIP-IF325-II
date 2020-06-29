@@ -41,6 +41,8 @@ Partial Class frmEstudiante
         Me.btnGuardar = New System.Windows.Forms.Button()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.dtgRegistros = New System.Windows.Forms.DataGridView()
+        Me.btnSalir = New System.Windows.Forms.Button()
+        Me.btnLimpiar = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -169,6 +171,8 @@ Partial Class frmEstudiante
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.btnLimpiar)
+        Me.GroupBox2.Controls.Add(Me.btnSalir)
         Me.GroupBox2.Controls.Add(Me.btnEliminar)
         Me.GroupBox2.Controls.Add(Me.btnModificar)
         Me.GroupBox2.Controls.Add(Me.btnGuardar)
@@ -221,22 +225,44 @@ Partial Class frmEstudiante
         Me.dtgRegistros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dtgRegistros.Location = New System.Drawing.Point(6, 19)
         Me.dtgRegistros.Name = "dtgRegistros"
+        Me.dtgRegistros.ReadOnly = True
         Me.dtgRegistros.RowHeadersWidth = 51
         Me.dtgRegistros.RowTemplate.Height = 24
         Me.dtgRegistros.Size = New System.Drawing.Size(728, 150)
         Me.dtgRegistros.TabIndex = 0
+        '
+        'btnSalir
+        '
+        Me.btnSalir.Location = New System.Drawing.Point(6, 143)
+        Me.btnSalir.Name = "btnSalir"
+        Me.btnSalir.Size = New System.Drawing.Size(111, 23)
+        Me.btnSalir.TabIndex = 3
+        Me.btnSalir.Text = "Salir"
+        Me.btnSalir.UseVisualStyleBackColor = True
+        '
+        'btnLimpiar
+        '
+        Me.btnLimpiar.Location = New System.Drawing.Point(6, 113)
+        Me.btnLimpiar.Name = "btnLimpiar"
+        Me.btnLimpiar.Size = New System.Drawing.Size(111, 23)
+        Me.btnLimpiar.TabIndex = 4
+        Me.btnLimpiar.Text = "Limpiar"
+        Me.btnLimpiar.UseVisualStyleBackColor = True
         '
         'frmEstudiante
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(795, 441)
+        Me.ControlBox = False
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "frmEstudiante"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "frmEstudiante"
+        Me.Text = "Estudiante"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
@@ -265,4 +291,6 @@ Partial Class frmEstudiante
     Friend WithEvents dtgRegistros As DataGridView
     Friend WithEvents txtCodigo As TextBox
     Friend WithEvents Label1 As Label
+    Friend WithEvents btnSalir As Button
+    Friend WithEvents btnLimpiar As Button
 End Class
