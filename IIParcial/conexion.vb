@@ -11,6 +11,8 @@ Public Class conexion
     Public ds As DataSet = New DataSet()
     Public da As SqlDataAdapter
     Public comando As SqlCommand
+    Public cmd As New SqlCommand
+    'Public dr As New SqlDataReader
     ' se crea un procedimiento para conectar a la base de datos y en el caso de existir alguna excepcion que esta la retorne 
     Public Sub conectar()
         Try
@@ -24,17 +26,32 @@ Public Class conexion
         End Try
     End Sub
 
-    Public Sub consulta(ByVal sql, ByVal tabla)
-        ds.Tables.Clear()
-        da = New SqlDataAdapter(sql, conexion)
-        cmb = New SqlCommandBuilder(da)
-        da.Fill(ds, tabla)
-    End Sub
+    Public Function consulta() As DataTable
+        Try
+            conexion.Open()
+            Dim cmd As New SqlCommand("consultaEstudiante", conexion)
+            cmd.CommandType = CommandType.StoredProcedure
+
+            If cmd.ExecuteNonQuery Then
+                Dim dt As New DataTable
+                Dim da As New SqlDataAdapter(cmd)
+                da.Fill(dt)
+                Return dt
+                'conexion.Close()
+            Else
+                Return Nothing
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return Nothing
+        End Try
+    End Function
 
     Function insertar(ByVal sql)
         conexion.Open()
         comando = New SqlCommand(sql, conexion)
         Dim i As Integer = comando.ExecuteNonQuery()
+        conexion.Close()
         If (i > 0) Then
             Return True
         Else
@@ -67,4 +84,28 @@ Public Class conexion
             Return False
         End If
     End Function
+
+
+    Function buscarEstudiante(ByVal condicion) As DataTable
+        Try
+            conexion.Open()
+            Dim buscar As String = "select * from personas.estudiante " + " where " + condicion
+            Dim cmd As New SqlCommand(buscar, conexion)
+            If cmd.ExecuteNonQuery Then
+                Dim dt As New DataTable
+                Dim da As New SqlDataAdapter(cmd)
+                da.Fill(dt)
+                Return dt
+            Else
+                Return Nothing
+            End If
+            conexion.Close()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            Return Nothing
+        End Try
+    End Function
+
+
+
 End Class

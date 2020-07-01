@@ -23,6 +23,8 @@ Partial Class frmEstudiante
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.cmbCodigoClase = New System.Windows.Forms.ComboBox()
+        Me.Label7 = New System.Windows.Forms.Label()
         Me.txtCodigo = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.cmbSexo = New System.Windows.Forms.ComboBox()
@@ -36,15 +38,14 @@ Partial Class frmEstudiante
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.btnBuscar = New System.Windows.Forms.Button()
+        Me.btnLimpiar = New System.Windows.Forms.Button()
+        Me.btnSalir = New System.Windows.Forms.Button()
         Me.btnEliminar = New System.Windows.Forms.Button()
         Me.btnModificar = New System.Windows.Forms.Button()
         Me.btnGuardar = New System.Windows.Forms.Button()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.dtgRegistros = New System.Windows.Forms.DataGridView()
-        Me.btnSalir = New System.Windows.Forms.Button()
-        Me.btnLimpiar = New System.Windows.Forms.Button()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.cmbCodigoClase = New System.Windows.Forms.ComboBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -73,6 +74,25 @@ Partial Class frmEstudiante
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Datos estudiante"
+        '
+        'cmbCodigoClase
+        '
+        Me.cmbCodigoClase.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbCodigoClase.FormattingEnabled = True
+        Me.cmbCodigoClase.Items.AddRange(New Object() {"IF-325", "IF-326"})
+        Me.cmbCodigoClase.Location = New System.Drawing.Point(345, 138)
+        Me.cmbCodigoClase.Name = "cmbCodigoClase"
+        Me.cmbCodigoClase.Size = New System.Drawing.Size(100, 24)
+        Me.cmbCodigoClase.TabIndex = 15
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(259, 140)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(91, 17)
+        Me.Label7.TabIndex = 14
+        Me.Label7.Text = "Codigo Clase"
         '
         'txtCodigo
         '
@@ -175,6 +195,7 @@ Partial Class frmEstudiante
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.btnBuscar)
         Me.GroupBox2.Controls.Add(Me.btnLimpiar)
         Me.GroupBox2.Controls.Add(Me.btnSalir)
         Me.GroupBox2.Controls.Add(Me.btnEliminar)
@@ -182,10 +203,37 @@ Partial Class frmEstudiante
         Me.GroupBox2.Controls.Add(Me.btnGuardar)
         Me.GroupBox2.Location = New System.Drawing.Point(645, 24)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(123, 169)
+        Me.GroupBox2.Size = New System.Drawing.Size(123, 198)
         Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Operaciones"
+        '
+        'btnBuscar
+        '
+        Me.btnBuscar.Location = New System.Drawing.Point(6, 138)
+        Me.btnBuscar.Name = "btnBuscar"
+        Me.btnBuscar.Size = New System.Drawing.Size(111, 23)
+        Me.btnBuscar.TabIndex = 5
+        Me.btnBuscar.Text = "Buscar"
+        Me.btnBuscar.UseVisualStyleBackColor = True
+        '
+        'btnLimpiar
+        '
+        Me.btnLimpiar.Location = New System.Drawing.Point(6, 113)
+        Me.btnLimpiar.Name = "btnLimpiar"
+        Me.btnLimpiar.Size = New System.Drawing.Size(111, 23)
+        Me.btnLimpiar.TabIndex = 4
+        Me.btnLimpiar.Text = "Limpiar"
+        Me.btnLimpiar.UseVisualStyleBackColor = True
+        '
+        'btnSalir
+        '
+        Me.btnSalir.Location = New System.Drawing.Point(6, 165)
+        Me.btnSalir.Name = "btnSalir"
+        Me.btnSalir.Size = New System.Drawing.Size(111, 23)
+        Me.btnSalir.TabIndex = 3
+        Me.btnSalir.Text = "Salir"
+        Me.btnSalir.UseVisualStyleBackColor = True
         '
         'btnEliminar
         '
@@ -235,43 +283,6 @@ Partial Class frmEstudiante
         Me.dtgRegistros.Size = New System.Drawing.Size(728, 150)
         Me.dtgRegistros.TabIndex = 0
         '
-        'btnSalir
-        '
-        Me.btnSalir.Location = New System.Drawing.Point(6, 143)
-        Me.btnSalir.Name = "btnSalir"
-        Me.btnSalir.Size = New System.Drawing.Size(111, 23)
-        Me.btnSalir.TabIndex = 3
-        Me.btnSalir.Text = "Salir"
-        Me.btnSalir.UseVisualStyleBackColor = True
-        '
-        'btnLimpiar
-        '
-        Me.btnLimpiar.Location = New System.Drawing.Point(6, 113)
-        Me.btnLimpiar.Name = "btnLimpiar"
-        Me.btnLimpiar.Size = New System.Drawing.Size(111, 23)
-        Me.btnLimpiar.TabIndex = 4
-        Me.btnLimpiar.Text = "Limpiar"
-        Me.btnLimpiar.UseVisualStyleBackColor = True
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(259, 140)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(91, 17)
-        Me.Label7.TabIndex = 14
-        Me.Label7.Text = "Codigo Clase"
-        '
-        'cmbCodigoClase
-        '
-        Me.cmbCodigoClase.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbCodigoClase.FormattingEnabled = True
-        Me.cmbCodigoClase.Items.AddRange(New Object() {"IF-325", "IF-326"})
-        Me.cmbCodigoClase.Location = New System.Drawing.Point(345, 138)
-        Me.cmbCodigoClase.Name = "cmbCodigoClase"
-        Me.cmbCodigoClase.Size = New System.Drawing.Size(100, 24)
-        Me.cmbCodigoClase.TabIndex = 15
-        '
         'frmEstudiante
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -318,4 +329,5 @@ Partial Class frmEstudiante
     Friend WithEvents btnLimpiar As Button
     Friend WithEvents cmbCodigoClase As ComboBox
     Friend WithEvents Label7 As Label
+    Friend WithEvents btnBuscar As Button
 End Class
