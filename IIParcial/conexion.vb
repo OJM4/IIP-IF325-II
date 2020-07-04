@@ -11,7 +11,7 @@ Public Class conexion
     Public ds As DataSet = New DataSet()
     Public da As SqlDataAdapter
     Public comando As SqlCommand
-    Public cmd As New SqlCommand
+    Public dr As SqlDataReader
     'Public dr As New SqlDataReader
     ' se crea un procedimiento para conectar a la base de datos y en el caso de existir alguna excepcion que esta la retorne 
     Public Sub conectar()
@@ -50,20 +50,6 @@ Public Class conexion
             MsgBox(ex.Message)
             Return Nothing
         End Try
-    End Function
-
-    'Función para insertar registros en una tabla, requiere de la consulta sql que recibirá del boton guardar, 'Byval sql'
-    Function insertar(ByVal sql)
-        conexion.Open()
-        comando = New SqlCommand(sql, conexion)
-        Dim i As Integer = comando.ExecuteNonQuery()
-        conexion.Close()
-        'Si existe al menos un registro nuevo este sera agregado a la base de datos
-        If (i > 0) Then
-            Return True
-        Else
-            Return False 'Si no existe nada no realizara ninguna operación
-        End If
     End Function
 
     'Funcion eliminar registro de la tabla: necesita de dos parametros que serán enviados del boton eliminar especificando el codigo a eliminar y la tabla afectada
@@ -118,5 +104,36 @@ Public Class conexion
             Return Nothing
         End Try
     End Function
+    'Validar si un registro por medio del código existe en la base de datos
+    Public Function estudianteValidar(ByVal codigo As String) As Boolean
+        Dim resultado As Boolean = False
+        Try
+            conexion.Open()
+            ''Dim query As String = "select * from personas.estudiante where codigo = '" + codigo + "'"
+            comando = New SqlCommand("select * from personas.estudiante where codigo='" + codigo + "'", conexion)
+            dr = comando.ExecuteReader
+            If dr.Read Then
+                resultado = True
+            End If
+            dr.Close()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+        Return resultado
+    End Function
+
+
+    'Función para insertar registros en una tabla, requiere de la consulta sql que recibirá del boton guardar, 'Byval sql'
+    Function insertarE(ByVal codigo As String, ByVal Nombre As String, ByVal Apellido1 As String, ByVal Apellido2 As String, ByVal edad As Integer, ByVal sexo As String, ByVal codigoClase As String) As String
+        Dim mensaje As String = "Estudiante almacenado"
+        Try
+            comando = New SqlCommand("Insert into personas.estudiante(codigo,nombre,primerApellido,segundoApellido,edad,sexo,codigoClase) values ('" & codigo & "','" & Nombre & "','" & Apellido1 & "','" + Apellido2 + "','" & edad & "','" & sexo & "','" & codigoClase & "')", conexion)
+            comando.ExecuteNonQuery()
+        Catch ex As Exception
+            mensaje = "No se inserto por: " + ex.ToString
+        End Try
+        Return mensaje
+    End Function
 
 End Class
+

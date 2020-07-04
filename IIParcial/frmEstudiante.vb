@@ -45,25 +45,16 @@
 
 
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
-        Try
-            'Ejemplo: insert into personas.estudiante 
-            'values(36,'Luis','Perez','Martinez',26,'M','IF-325')
-            Dim guardar As String =
-             "insert into personas.estudiante values(" + txtCodigo.Text + ",'" + txtNombre.Text + "','" + txtPrimerApellido.Text + "',
-             '" + txtSegApellido.Text + "','" + txtEdad.Text + "','" + cmbSexo.Text + "','" + cmbCodigoClase.Text + "')"
-
-            If (conexion.insertar(guardar)) Then
-                MessageBox.Show("Guardado")
-                mostrarDatos() 'Llama la función que rellena el datagrid con la info actualizada
-                Limpiar() 'Limpia las casillas de texto
-                conexion.conexion.Close() 'Cierra conexion, para poder realizar otra operación
-            Else
-                MessageBox.Show("Error al guardar")
-                conexion.conexion.Close() 'Cierra conexion, para poder realizar otra operación en el caso que falle la insercion
-            End If
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
+        If (conexion.estudianteValidar(txtCodigo.Text) = False) Then
+            MsgBox(conexion.insertarE(txtCodigo.Text, txtNombre.Text, txtPrimerApellido.Text, txtSegApellido.Text, Val(txtEdad.Text), cmbSexo.Text, cmbCodigoClase.Text))
+            conexion.conexion.Close()
+            Limpiar()
+            mostrarDatos()
+            txtCodigo.Focus()
+        Else
+            MsgBox("Estudiante ya existe", MessageBoxIcon.Error)
+            conexion.conexion.Close()
+        End If
     End Sub
 
     Private Sub btnEliminar_Click(sender As Object, e As EventArgs) Handles btnEliminar.Click
@@ -166,5 +157,6 @@
     Private Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
         mostrarBusqueda()
     End Sub
+
 End Class
 
